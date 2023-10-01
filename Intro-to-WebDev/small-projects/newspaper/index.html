@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The News Times</title>
+  </head>
+  <body>
+    <style>
+      .nav-header > ul {
+        grid-area: nav-header;
+        background-color: red;
+        padding: 10px;
+        display: flex;
+      }
+      .news-subsection1 {
+        grid-area: news1;
+        background-color: green;
+      }
+
+      .news-subsection2 {
+        grid-area: news2;
+        background-color: blue;
+      }
+
+      .news-subsection3 {
+        grid-area: news3;
+        background-color: yellow;
+      }
+
+      .news-subsection4 {
+        grid-area: news4;
+        background-color: brown;
+      }
+
+      .news-subsection5 {
+        grid-area: news5;
+        background-color: purple;
+      }
+
+      .news-section {
+        display: grid;
+        grid-template-areas: "news-subsection1 news-subsection2 news-subsection2 news-subsection1";
+      }
+    </style>
+    <div class="full-layout">
+      <div class="news-title">
+        <h3>The News Times</h3>
+      </div>
+      <section class="sub-layout">
+        <div class="nav-header">
+          <ul>
+            <div class="nav-link">Politics</div>
+            <div class="nav-link">Technology</div>
+            <div class="nav-link">Local</div>
+            <div class="nav-link">Opinion</div>
+            <div class="nav-link">Sports</div>
+          </ul>
+        </div>
+        <div class="news-section">
+          <div class="news-subsection1">
+            <h3>Students Learn HTML</h3>
+          </div>
+          <div class="news-subsection2">
+            <h3>Breaking: Luna is Adorable</h3>
+          </div>
+          <div class="news-subsection3">
+            <h3>Css Is apparently a thing</h3>
+          </div>
+          <div class="news-subsection4">
+            <h3>Between the angle brackets</h3>
+          </div>
+          <div class="news-subsection5">
+            <h3>Scientist Invents Coffee</h3>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

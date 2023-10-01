@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .title {
+        grid-area: title;
+      }
+
+      .nav-header {
+        grid-area: nav;
+      }
+
+      .story1 {
+        grid-area: story1;
+      }
+
+      .story2 {
+        grid-area: story2;
+      }
+
+      .story3 {
+        grid-area: story3;
+      }
+
+      .story4 {
+        grid-area: story4;
+      }
+
+      .story5 {
+        grid-area: story5;
+      }
+
+      .full-layout {
+        display: grid;
+        grid-template-areas:
+          "title title title"
+          "nav nav nav "
+          "story1 story2 story3"
+          "story4 story5 story5";
+      }
+
+      .title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: normal;
+        font-style: italic;
+        margin: 50px;
+      }
+
+      .article-title {
+        font-size: 30px;
+        text-align: center;
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      .news {
+        padding: 10px;
+        border-left: 3px solid black;
+        border-bottom: 3px solid black;
+        /* text-align: center; */
+      }
+
+      .story3,
+      .story5 {
+        border-right: 3px solid black;
+      }
+
+      .nav-header {
+        display: flex;
+        justify-content: space-around;
+        border: 3px solid black;
+        margin: 0;
+        list-style: none;
+        padding: 30px;
+        align-items: center;
+      }
+
+      .nav-links > a {
+        color: black;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: "Futura";
+        color: #666;
+        font-weight: bold;
+      }
+
+      .nav-links > a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <div class="full-layout">
+      <header class="title">
+        <h3>The News Times</h3>
+      </header>
+      <ul class="nav-header">
+        <li class="nav-links">
+          <a href="#">Politics</a>
+        </li>
+        <li class="nav-links">
+          <a href="#">Technology</a>
+        </li>
+        <li class="nav-links">
+          <a href="#">Local</a>
+        </li>
+        <li class="nav-links">
+          <a href="#">Opinion</a>
+        </li>
+        <li class="nav-links">
+          <a href="#">Sports</a>
+        </li>
+      </ul>
+      <article class="story1 news">
+        <h2 class="article-title">Students Learn HTML</h2>
+        <p class="article-text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic ad in
+          quas alias non! Expedita similique et dolore illum doloremque vel
+          accusantium ut eos tempora sequi, doloribus vitae mollitia praesentium
+          ex ullam? Dolorem labore fugiat neque nostrum porro vero fugit.
+        </p>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam
+          corrupti, eius odio neque incidunt esse fuga veritatis ipsum, eligendi
+          mollitia, porro quasi provident nisi sit! Doloribus, eligendi nemo, ad
+          laudantium cupiditate aspernatur eveniet asperiores modi praesentium
+          voluptas eos sunt odio.
+        </p>
+      </article>
+      <article class="story2 news">
+        <h2>Stop harassing me</h2>
+        <img
+          class="article-img"
+          src="http://pets-images.dev-apis.com/pets/dog25.jpg"
+          alt="Luna in a suitcase"
+        />
+        <p class="article-text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet magnam
+          nisi commodi sit rem expedita placeat modi exercitationem architecto
+          nobis rerum itaque ex voluptatum dignissimos ducimus facere, voluptate
+          officiis odio cupiditate soluta? Suscipit quis corporis iure,
+          praesentium optio consequuntur quo?
+        </p>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+          dolor ab dolorem maiores fuga vero! Nisi earum harum natus
+          perspiciatis ipsam sunt repudiandae praesentium, numquam tenetur
+          recusandae architecto aut quisquam rerum perferendis ducimus sint
+          voluptatem quod aperiam accusantium illum vero.
+        </p>
+      </article>
+      <article class="story3 news">
+        <h2>Why fasting great for you</h2>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sequi
+          eius nisi! Dolorum ad aliquid itaque a at minima eveniet pariatur
+          quibusdam non cum error, laudantium eos ipsa eius optio et magnam est
+          quae hic ullam amet possimus libero sunt.
+        </p>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, eaque.
+          Voluptatibus quas, facilis, corrupti illum non minima aperiam
+          reiciendis ullam dolores placeat libero veniam. Repudiandae deleniti
+          nobis non consequatur impedit quia laudantium corporis quod vitae
+          cupiditate. Est ipsa atque deserunt.
+        </p>
+      </article>
+      <article class="story4 news">
+        <h2>Between the brackets</h2>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dolor
+          perferendis ducimus nam ipsum a illo autem harum cum. Minima
+          temporibus quae officia alias adipisci incidunt excepturi earum
+          assumenda tenetur, reiciendis ab, facilis esse sint a harum repellat!
+          Tenetur, modi.
+        </p>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
+          mollitia molestiae ut sed sunt ipsa similique magni voluptate
+          assumenda earum eius nulla iusto vitae voluptatem ratione dolorum
+          excepturi illo porro incidunt, fugit voluptatum soluta culpa. A
+          voluptates ex impedit ducimus.
+        </p>
+      </article>
+      <article class="story5 news">
+        <h2>Scientist invents</h2>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus aliquid, nobis illum molestias distinctio ex velit
+          eius, dolor alias odio asperiores blanditiis iusto modi ducimus veniam
+          voluptates amet dignissimos nisi hic animi est voluptatem? Nisi, sint
+          iure! Adipisci, aliquid necessitatibus voluptatibus dolorum blanditiis
+          odit repudiandae laborum! Magnam eveniet enim neque in aspernatur quas
+          nesciunt, corporis eius facilis hic incidunt, ab dolorum aut dolor
+          quidem sed repellendus rerum pariatur totam laboriosam. Ea dolorem
+          consequatur tempore atque officia blanditiis nihil doloremque, amet
+          repellendus ipsa recusandae delectus, deserunt eum quod totam
+          veritatis? Perspiciatis quas vero amet obcaecati placeat molestias
+          beatae odio illum sunt.
+        </p>
+        <p class="article-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum,
+          repellendus, cum facilis repellat laborum quo ex architecto deleniti
+          animi ratione commodi. Facere nemo enim debitis? Enim exercitationem
+          aspernatur alias deleniti minus quisquam quidem eos est recusandae
+          necessitatibus, iusto aliquid ab veritatis modi voluptatum rerum.
+          Tempora rem nobis quaerat saepe asperiores, quisquam veniam ad hic ut
+          vitae optio et porro expedita autem neque quam qui laudantium. Ut
+          exercitationem maxime praesentium qui rerum, recusandae odit quisquam
+          libero quo molestiae eligendi dolores ex quos ad illum earum fugiat
+          ipsum aliquid explicabo sunt! Dolorem eveniet, saepe tenetur numquam
+          sint obcaecati ipsam veniam similique mollitia.
+        </p>
+        <p class="article-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+          itaque cum est iusto. Dignissimos, labore, sint placeat necessitatibus
+          obcaecati laboriosam modi provident dolorum quibusdam incidunt velit
+          molestiae. Est mollitia eos quos iusto. Omnis culpa alias fugiat
+          accusamus, quaerat laborum maiores laudantium cumque labore recusandae
+          perspiciatis, aperiam debitis veritatis dignissimos obcaecati quidem
+          quas eos quis sequi incidunt placeat ab unde, natus sunt. Illum
+          laboriosam non debitis sed libero officiis ullam architecto vero velit
+          soluta ducimus quidem placeat laborum deserunt, aliquam, voluptatibus
+          a praesentium adipisci repellendus tenetur natus dolores nemo alias.
+          In cupiditate veritatis reiciendis sit nostrum libero ullam
+          accusantium et deleniti.
+        </p>
+      </article>
+    </div>
+  </body>
+</html>

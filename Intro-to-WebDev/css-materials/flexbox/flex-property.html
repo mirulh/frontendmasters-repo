@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Properties</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        text-anchor: middle;
+      }
+
+      .css-notes {
+        margin-bottom: 50px;
+      }
+
+      /* alter this code with flex properties */
+      .flex-container {
+        display: flex;
+        border: 1px solid black;
+        width: 40%;
+        margin-bottom: 50px;
+      }
+
+      .box1 {
+        border: 1px solid black;
+        background-color: #fcc;
+        height: 150px;
+        width: 300px;
+        border: none;
+        /* flex-grow: 1; to use flex-grow remove the box width*/
+      }
+
+      .box2 {
+        border: 1px solid black;
+        background-color: #ccf;
+        height: 100px;
+        width: 300px;
+        border: none;
+        /* flex-grow: 1; to use flex-grow remove the box width*/
+      }
+
+      .box3 {
+        border: 1px solid black;
+        background-color: #cfc;
+        height: 200px;
+        width: 100px;
+        border: none;
+        /* flex-grow: 1; to use flex-grow remove the box width*/
+      }
+
+      .notes {
+        margin-right: 100px;
+      }
+
+      .graphics {
+        display: flex;
+        flex-wrap: wrap; /* Eureka! i can wrap!*/
+        /* max-width: 1700px; */
+        margin-bottom: 100px;
+      }
+
+      .flex-direction-container {
+        border: none;
+        width: 500px;
+      }
+      .box {
+        height: 60px;
+        width: 60px;
+        margin: 3px;
+      }
+
+      .container1 {
+        display: flex;
+        margin: 0 0 3px 0;
+        gap: 20px;
+        flex-direction: row;
+        background-color: #888;
+      }
+
+      .container2 {
+        display: flex;
+        margin: 0 0 3px 0;
+        gap: 20px;
+        flex-direction: row-reverse;
+        background-color: #888;
+      }
+
+      .container3 {
+        display: flex;
+        margin: 0 0 3px 0;
+        gap: 20px;
+        flex-direction: column;
+        background-color: #888;
+      }
+      .container3 > p {
+        text-align: center;
+      }
+
+      .container4 {
+        display: flex;
+        gap: 20px;
+        flex-direction: column-reverse;
+        background-color: #888;
+        align-items: flex-end;
+      }
+
+      .container-merge {
+        display: flex;
+        justify-content: space-between;
+        background-color: #888;
+      }
+
+      .flex-container.two {
+        flex-wrap: wrap;
+        min-height: 30vh;
+        /* align-items: center; */
+        align-content: stretch;
+        margin-right: 30px;
+      }
+
+      .align-explanation {
+        display: flex;
+      }
+
+      .explanation {
+        flex-wrap: wrap;
+        width: 40%;
+      }
+    </style>
+    <section class="css-notes">
+      <h2>Flex Properties - refers README</h2>
+      <div class="flex-container">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+      </div>
+      <div class="graphics">
+        <div class="flex-direction notes">
+          <h2>flex-direction:</h2>
+
+          <div class="flex-direction-container">
+            <div class="container1">
+              <div class="box1 box">1</div>
+              <div class="box2 box">2</div>
+              <div class="box3 box">3</div>
+              <p>row</p>
+            </div>
+            <div class="container2">
+              <div class="box1 box">1</div>
+              <div class="box2 box">2</div>
+              <div class="box3 box">3</div>
+              <p>row-reverse</p>
+            </div>
+            <div class="container-merge">
+              <div class="container3">
+                <p>column</p>
+                <div class="box1 box">1</div>
+                <div class="box2 box">2</div>
+                <div class="box3 box">3</div>
+              </div>
+              <div class="container4">
+                <div class="box1 box">1</div>
+                <div class="box2 box">2</div>
+                <div class="box3 box">3</div>
+                <p>column-reverse</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="justify-content notes">
+          <h2>justify-content:</h2>
+          <img
+            decoding="async"
+            src="http://www.w3.org/TR/css3-flexbox/images/flex-pack.svg"
+            alt=""
+          />
+        </div>
+        <div class="align-items notes">
+          <h2>align-items:</h2>
+          <img
+            decoding="async"
+            src="https://css-tricks.com/wp-content/uploads/2019/10/flex-align.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <section class="ac-explained">
+        <h2>Flex Properties - understanding align-content</h2>
+        <div class="align-explanation">
+          <div class="flex-container two">
+            <div class="box1 box">1</div>
+            <div class="box2 box">2</div>
+            <div class="box3 box">3</div>
+            <div class="box1 box">4</div>
+            <div class="box2 box">5</div>
+            <div class="box3 box">6</div>
+            <div class="box1 box">7</div>
+            <div class="box2 box">8</div>
+            <div class="box3 box">9</div>
+            <div class="box1 box">10</div>
+            <div class="box2 box">11</div>
+            <div class="box3 box">12</div>
+            <div class="box1 box">13</div>
+            <div class="box2 box">14</div>
+            <div class="box3 box">15</div>
+          </div>
+          <p class="explanation">
+            If flex-wrap is set to nowrap, the align-content property will have
+            no effect, because there is only one line, and aligning content on a
+            single line doesn't make sense.
+            <br />
+            So, to use align-content, the flex-wrap: wrap, must be applied
+          </p>
+        </div>
+        <div class="align-content notes">
+          <h2>align-content:</h2>
+          <img
+            decoding="async"
+            src="https://www.w3.org/TR/css3-flexbox/images/align-content-example.svg"
+            alt=""
+          />
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

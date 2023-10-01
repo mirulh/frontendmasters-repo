@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Property</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        row-gap: 10px;
+        column-gap: 10px;
+      }
+
+      .grid-picture {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <div class="grid">
+      <img
+        src="http://pets-images.dev-apis.com/pets/dog25.jpg"
+        alt=""
+        class="grid-picture"
+      />
+      <img
+        src="http://pets-images.dev-apis.com/pets/dog26.jpg"
+        alt=""
+        class="grid-picture"
+      />
+      <img
+        src="http://pets-images.dev-apis.com/pets/dog27.jpg"
+        alt=""
+        class="grid-picture"
+      />
+      <img
+        src="http://pets-images.dev-apis.com/pets/dog28.jpg"
+        alt=""
+        class="grid-picture"
+      />
+    </div>
+  </body>
+</html>

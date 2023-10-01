@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .sub-layout {
+        border: 2px solid black;
+        width: 1000px;
+      }
+
+      .nav-header > ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px;
+      }
+
+      .post {
+        display: flex;
+        border: 1px solid black;
+      }
+
+      .nav-header {
+        grid-area: header;
+      }
+
+      .news-layout1 {
+        grid-area: news1;
+      }
+
+      .news-layout2 {
+        grid-area: news2;
+      }
+
+      .news-layout3 {
+        grid-area: news3;
+      }
+
+      .news-layout4 {
+        grid-area: news4;
+      }
+      .news-layout5 {
+        grid-area: news5;
+      }
+
+      .sub-layout {
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "news1 news2 news2   news3"
+          "news4 news5 news5 news5";
+      }
+
+      .title {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+    <div class="full-layout">
+      <header class="title">
+        <h2>The News Times</h2>
+      </header>
+      <section class="sub-layout">
+        <div class="nav-header">
+          <ul>
+            <li class="nav-link1"><a href="#">Politics</a></li>
+            <li class="nav-link2"><a href="#">Technology</a></li>
+            <li class="nav-link3"><a href="#">Local</a></li>
+            <li class="nav-link4"><a href="#">Opinion</a></li>
+            <li class="nav-link5"><a href="#">Sports</a></li>
+          </ul>
+        </div>
+        <!-- <section class="news"> -->
+        <div class="news-layout1 post">
+          <h3>Students Learns Html</h3>
+        </div>
+        <div class="news-layout2 post">
+          <h3>Breaking Luna is Adorable</h3>
+        </div>
+        <div class="news-layout3 post">
+          <h3>Css is apparently a thing</h3>
+        </div>
+        <div class="news-layout4 post">
+          <h3>Between angels and bracket</h3>
+        </div>
+        <div class="news-layout5 post">
+          <h3>Scientist invents</h3>
+        </div>
+        <!-- </section> -->
+      </section>
+    </div>
+  </body>
+</html>

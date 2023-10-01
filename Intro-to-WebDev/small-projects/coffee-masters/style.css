@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #efefef;
+  font-family: "Open Sans", sans-serif;
+}
+
+h3 {
+  margin: 0;
+}
+
+.brand {
+  background-color: #43281c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #fbf2c0;
+  font-size: 1.5em;
+  height: 90px;
+}
+
+.brand > img {
+  width: 50px;
+  height: 50px;
+}
+
+.payment-details {
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /* max-width: 100%; */
+
+  margin: 30px;
+  justify-content: space-between;
+}
+
+.items {
+  height: 400px;
+  width: 48%;
+  border: 1px solid #000;
+  background-color: #eee1d5;
+  padding: 15px;
+  border: none;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 7px;
+}
+
+.customer-details {
+}
+
+.name {
+  height: 200px;
+  width: 900px;
+  border: 1px solid #000;
+  background-color: #eee1d5;
+  padding: 15px;
+  border: none;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 7px;
+}
+
+.name-group {
+  /* display: inline-block; */
+  margin-top: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.name-label {
+  font-size: 15px;
+  position: absolute;
+  background-color: #eee1d5;
+  left: 20px;
+  color: #8b4513;
+}
+
+.name-input {
+  padding: 20px;
+  margin-top: 10px;
+  border-style: none;
+  border-radius: 25px;
+  border: 1px solid #a27b57;
+  background-color: #eee1d5;
+  width: 60em;
+  outline: none;
+}
+
+.card-group {
+  /* display: inline-block; */
+  margin-top: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.card-label {
+  font-size: 15px;
+  position: absolute;
+  background-color: #eee1d5;
+  left: 20px;
+  color: #8b4513;
+
+  /* top: 1px;
+    left: 20px; */
+}
+
+.card-input {
+  padding: 20px;
+  margin-top: 10px;
+  border-style: none;
+  border-radius: 25px;
+  border: 1px solid #a27b57;
+  background-color: #eee1d5;
+  width: 60em;
+  outline: none;
+}
+
+input:focus {
+  border: 3px solid #a0522d; /* Change this to the desired border color */
+}
+
+.ccv-group {
+  /* display: inline-block; */
+  margin-top: 20px;
+  position: relative;
+}
+
+.ccv-label {
+  font-size: 15px;
+  position: absolute;
+  left: 20px;
+  background-color: #eee1d5;
+  color: #8b4513;
+}
+
+.ccv-input {
+  padding: 20px;
+  margin-top: 10px;
+  border-style: none;
+  border-radius: 25px;
+  border: 1px solid #a27b57;
+  background-color: #eee1d5;
+  outline: none;
+}
+
+.payment {
+  height: 270px;
+  width: 900px;
+  border: 1px solid #000;
+  background-color: #eee1d5;
+  padding: 15px;
+  margin-top: 30px;
+  border: none;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 7px;
+}
+
+.checkout-details {
+  margin: 30px;
+}
+
+.place-order-button {
+  border-radius: 25px;
+  background-color: #deb993;
+  width: 50%;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+
+.place-order-button:hover {
+  background-color: #c9a885;
+}
+
+.place-order-button:active {
+  background-color: #a0522d;
+  color: white;
+}
+
+.checkout-description {
+  padding: 30px;
+}
+
+.checkout-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* everything about grid */
+
+.quantity {
+  font-weight: bold;
+  grid-area: quantity;
+}
+
+.drink {
+  font-weight: bold;
+  grid-area: drink;
+}
+
+.price {
+  font-weight: bold;
+  grid-area: price;
+  display: flex;
+  justify-content: center;
+}
+
+.specification {
+  color: #8b4513;
+  grid-area: specification;
+}
+
+.specification2 {
+  color: #8b4513;
+  grid-area: specification2;
+}
+
+.item1-details,
+.item2-details {
+  border-bottom: 1px solid #deb993;
+}
+
+.item1-details,
+.item2-details,
+.item3-details {
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+
+  grid-template-areas:
+    "quantity drink  price"
+    "quantity specification price"
+    "quantity specification2 price";
+}
+
+/* checkout grid */
+.subtotal {
+  grid-area: subtotal;
+}
+
+.subtotal-detail {
+  grid-area: subtotal-detail;
+}
+
+.tax {
+  grid-area: tax;
+}
+
+.tax-detail {
+  grid-area: tax-detail;
+}
+
+.total {
+  font-weight: bolder;
+  grid-area: total;
+}
+
+.total-detail {
+  font-weight: bolder;
+  grid-area: total-detail;
+}
+
+.checkout-description {
+  font-size: 20px;
+  display: grid;
+  grid-template-areas:
+    ". . subtotal subtotal-detail ."
+    ". . tax tax-detail ."
+    ". . total total-detail .";
+}
