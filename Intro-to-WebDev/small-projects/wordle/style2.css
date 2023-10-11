@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.word-container {
+  max-width: 420px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 10px;
+  column-gap: 5px;
+}
+
+.scoreboard-letter {
+  height: 80px;
+  width: 80px;
+  border: 1px solid grey;
+}

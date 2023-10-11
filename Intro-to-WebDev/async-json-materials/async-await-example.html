@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async Await API</title>
+  </head>
+  <body>
+    <button id="dog-btn">Gimme Doggo</button>
+    <p class="status">Statussy</p>
+    <div id="dog-target"></div>
+    <script>
+      //One thing to note about async functions: they always return promises themselves.
+
+      const dog_url = "https://dog.ceo/api/breeds/image/random";
+
+      const doggos = document.getElementById("dog-target");
+
+      const displayStatus = document.querySelector(".status");
+
+      async function displayDoggo() {
+        const promise = await fetch(dog_url);
+        // console.log(promise);
+        const processedResponse = await promise.json();
+        const img = document.createElement("img");
+        img.src = processedResponse.message;
+        img.alt = "Cute doggo";
+        doggos.appendChild(img);
+
+        const stateStatus = processedResponse.status;
+        displayStatus.textContent = `Status: ${stateStatus}`;
+      }
+      document
+        .getElementById("dog-btn")
+        .addEventListener("click", displayDoggo);
+    </script>
+  </body>
+</html>

@@ -3,17 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input Focus Example</title>
-    <style>
-      /* CSS */
-      input:focus {
-        border-color: #ff0000; /* Change this to the desired border color */
-      }
-    </style>
+    <title>Random Dog</title>
   </head>
+
   <body>
-    <!-- HTML -->
-    <label for="inputField">Input Field:</label>
-    <input type="text" id="inputField" />
+    <h1>Random Dog</h1>
+    <p id="status"></p>
+    <img id="dog-image" src="" alt="Random Dog Image" />
+
+    <script>
+      async function getName() {
+        return "Brian";
+      }
+
+      console.log("a promise", getName());
+
+      getName().then(function (name) {
+        console.log("the actual name", name);
+      });
+    </script>
   </body>
 </html>
+
+<!-- Despite the fact we're not doing any awaiting in getName, because it's async it returns a promise. I show you this because it can catch people off guard. That's how async functions work and why await does work: they're async and therefore one may have to wait when you call them. 
+
+because we used await it returned promise
+
+-->

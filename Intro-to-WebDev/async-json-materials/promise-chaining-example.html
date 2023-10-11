@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON API Practice</title>
+  </head>
+  <body>
+    <button id="dog-btn">Gimme Doggo</button>
+    <div id="status-here">here</div>
+    <div id="dog-target"></div>
+
+    <script>
+      //1) declare the api url
+      const dogAPI = "https://dog.ceo/api/breeds/image/random";
+
+      //2)   select the class/id where the result will be displayed
+      const dogPic = document.getElementById("dog-target");
+
+      //4)   create the function
+      function displayDoggo() {
+        // dogPic.innerText = "Hey don't touch me!";
+
+        const promise = fetch(dogAPI);
+        promise
+          .then(function (response) {
+            const processingPromise = response.json();
+            return processingPromise;
+          })
+          .then(function (data) {
+            const status = data.status;
+            const image = data.message;
+
+            document.getElementById(
+              "status-here"
+            ).innerText = `Status: ${status}`;
+
+            const img = document.createElement("img");
+            img.src = image;
+            img.alt = "cute doggo";
+            dogPic.appendChild(img);
+          });
+      }
+
+      //3)   create callback statement and the function
+      document
+        .querySelector("#dog-btn")
+        .addEventListener("click", displayDoggo);
+    </script>
+  </body>
+</html>
