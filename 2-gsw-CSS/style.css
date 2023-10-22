@@ -19,6 +19,9 @@
   --slab: "Roboto slab";
   --cour: "Courier Prime";
   --rec: Recursive;
+
+  /* Eureka! redefining the color name to verb for a greater clarity when to use it (when hovering, this color is used etc) */
+  --hoverColor: var(--orange2);
 }
 
 /* border box model https://css-tricks.com/box-sizing/*/
@@ -95,7 +98,7 @@ a {
 }
 
 .directory:hover {
-  color: var(--orange2);
+  color: var(--hoverColor); /* used here */
 }
 
 /* projects section --------------- */

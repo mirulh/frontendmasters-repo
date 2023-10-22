@@ -1,30 +1,17 @@
-const favoriteBooks = [];
+const teaType = function teaStore() {
+  return "Black Tea";
+};
 
-addFavoriteBook("BookGreatFirst");
-addFavoriteBook("BookGrateSecond");
-addFavoriteBook("BookGreetThird");
-addFavoriteBook("BookGreatFourth");
-addFavoriteBook("BookGreatFifth");
+const prepareForTea = function executeTea(numberOfTea) {
+  const teaArr = [];
 
-function addFavoriteBook(bookName) {
-  if (!bookName.includes("Great")) {
-    favoriteBooks.push(bookName);
+  for (let i = 0; i < numberOfTea; i++) {
+    const teaCup = teaType();
+    teaArr.push(teaCup);
   }
-}
+  return teaArr;
+};
 
-function printFavoriteBooks() {
-  console.log(`Favorite books: ${favoriteBooks.length}`);
-  for (let bookName of favoriteBooks) {
-    console.log(bookName);
-  }
-}
+const callForTea = prepareForTea(40);
 
-printFavoriteBooks();
-
-console.log(
-  `All books not containing the word "great" ${favoriteBooks} totaling: ${favoriteBooks.length}`
-);
-
-// var greeting = "Hello";
-
-// console.log(number.isNaN(greeting));
+console.log(callForTea);

@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+}
+
+/* the double colon in pseudo element as opposed to pseudo class */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fullLayout {
+  margin: 100px auto;
+  max-width: 300px;
+  width: 100%;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 50px;
+}
+
+.freeze {
+  pointer-events: none;
+}
+
+.win {
+  background-color: lightgreen;
+}
+/* tiles design */
+
+.tile {
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  font-size: 8rem;
+}
+
+.tile1 {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.tile2 {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.tile3 {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.tile4 {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.tile5 {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.tile6 {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.tile7 {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.tile8 {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.tile9 {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
