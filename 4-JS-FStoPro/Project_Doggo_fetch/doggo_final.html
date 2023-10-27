@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Doggo Fetch</title>
+  </head>
+  <body>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        margin: 1rem auto;
+        padding: 3rem;
+      }
+
+      .image-frame {
+        text-align: center;
+        margin: 1rem auto;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      header {
+        margin: 1rem auto;
+        width: 70%;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      .correct {
+        background-color: lightgreen;
+      }
+
+      .incorrect {
+        background-color: lightpink;
+      }
+
+      /* .show {
+        visibility: visible;
+      }
+
+      .loading-indicator {
+        animation: spin 0.4s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(180deg);
+        }
+      } */
+
+      .layout {
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+      }
+    </style>
+
+    <div class="full-layout">
+      <header>
+        <h1>Guess the doggo</h1>
+        <p>What breed is the dog in the image</p>
+      </header>
+      <div class="layout">
+        <div class="image-frame"></div>
+        <div class="options"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      /* TODO: how to get random answers data to insert into button */
+
+      const BREEDS = [
+        "affenpinscher",
+        "african",
+        "airedale",
+        "akita",
+        "appenzeller",
+        "shepherd australian",
+        "basenji",
+        "beagle",
+        "bluetick",
+        "borzoi",
+        "bouvier",
+        "boxer",
+        "brabancon",
+        "briard",
+        "norwegian buhund",
+        "boston bulldog",
+        "english bulldog",
+        "french bulldog",
+        "staffordshire bullterrier",
+        "australian cattledog",
+        "chihuahua",
+        "chow",
+        "clumber",
+        "cockapoo",
+        "border collie",
+        "coonhound",
+        "cardigan corgi",
+        "cotondetulear",
+        "dachshund",
+        "dalmatian",
+        "great dane",
+        "scottish deerhound",
+        "dhole",
+        "dingo",
+        "doberman",
+        "norwegian elkhound",
+        "entlebucher",
+        "eskimo",
+        "lapphund finnish",
+        "bichon frise",
+        "germanshepherd",
+        "italian greyhound",
+        "groenendael",
+        "havanese",
+        "afghan hound",
+        "basset hound",
+        "blood hound",
+        "english hound",
+        "ibizan hound",
+        "plott hound",
+        "walker hound",
+        "husky",
+        "keeshond",
+        "kelpie",
+        "komondor",
+        "kuvasz",
+        "labradoodle",
+        "labrador",
+        "leonberg",
+        "lhasa",
+        "malamute",
+        "malinois",
+        "maltese",
+        "bull mastiff",
+        "english mastiff",
+        "tibetan mastiff",
+        "mexicanhairless",
+        "mix",
+        "bernese mountain",
+        "swiss mountain",
+        "newfoundland",
+        "otterhound",
+        "caucasian ovcharka",
+        "papillon",
+        "pekinese",
+        "pembroke",
+        "miniature pinscher",
+        "pitbull",
+        "german pointer",
+        "germanlonghair pointer",
+        "pomeranian",
+        "medium poodle",
+        "miniature poodle",
+        "standard poodle",
+        "toy poodle",
+        "pug",
+        "puggle",
+        "pyrenees",
+        "redbone",
+        "chesapeake retriever",
+        "curly retriever",
+        "flatcoated retriever",
+        "golden retriever",
+        "rhodesian ridgeback",
+        "rottweiler",
+        "saluki",
+        "samoyed",
+        "schipperke",
+        "giant schnauzer",
+        "miniature schnauzer",
+        "english setter",
+        "gordon setter",
+        "irish setter",
+        "sharpei",
+        "english sheepdog",
+        "shetland sheepdog",
+        "shiba",
+        "shihtzu",
+        "blenheim spaniel",
+        "brittany spaniel",
+        "cocker spaniel",
+        "irish spaniel",
+        "japanese spaniel",
+        "sussex spaniel",
+        "welsh spaniel",
+        "english springer",
+        "stbernard",
+        "american terrier",
+        "australian terrier",
+        "bedlington terrier",
+        "border terrier",
+        "cairn terrier",
+        "dandie terrier",
+        "fox terrier",
+        "irish terrier",
+        "kerryblue terrier",
+        "lakeland terrier",
+        "norfolk terrier",
+        "norwich terrier",
+        "patterdale terrier",
+        "russell terrier",
+        "scottish terrier",
+        "sealyham terrier",
+        "silky terrier",
+        "tibetan terrier",
+        "toy terrier",
+        "welsh terrier",
+        "westhighland terrier",
+        "wheaten terrier",
+        "yorkshire terrier",
+        "tervuren",
+        "vizsla",
+        "spanish waterdog",
+        "weimaraner",
+        "whippet",
+        "irish wolfhound",
+      ]; // API link
+      const DOGGO_URL = " https://dog.ceo/api/breeds/image/random";
+
+      // 2) Fetch the data from API o-> image URL
+      /* EXP: URL: is the DOGGO_URL */
+      async function getRandomDoggo(url) {
+        // console.log("getRandomDoggo:", url);
+        const response = await fetch(url);
+        const processedResponse = await response.json();
+        const { message } = processedResponse;
+
+        // dogImage.setAttribute("src", message);
+
+        console.log("getRandomDoggo:", message);
+        return message;
+      }
+
+      // 3) Extract the correct answer from the link
+      /* EXP: URL is the output from doggoImgUrl fn */
+      function getAnswer(url) {
+        // console.log("getAnswer:", url);
+        const linkRestructured = url.split("/");
+        const dogBreed = linkRestructured[4].split("-").reverse().join(" ");
+
+        console.log(dogBreed);
+        return dogBreed;
+      }
+
+      // 4) Create an array with all wrong answers
+      function getRandomElement(correctAnswer) {
+        const choicesArray = [];
+        choicesArray.push(correctAnswer);
+
+        console.log(correctAnswer);
+
+        while (choicesArray.length < 3) {
+          const randomDog = BREEDS[Math.floor(Math.random() * BREEDS.length)];
+          if (!choicesArray.includes(randomDog)) {
+            choicesArray.push(randomDog);
+          }
+        }
+        console.log("unshuffled array:", choicesArray);
+        console.log("shuffled array:", shuffleArray(choicesArray));
+        return shuffleArray(choicesArray);
+      }
+
+      // 5) Define shuffle array function
+      /* EXP: array is unshuffled array */
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      // 6) Render quiz with all the data
+      function renderQuiz(url) {
+        const image = document.createElement("img");
+        image.setAttribute("src", url);
+
+        image.addEventListener("load", () => {
+          frame.replaceChildren(image);
+        });
+        // frame.replaceWith(image);
+      }
+
+      // 7) Render buttons
+      function renderButton(correct, choices) {
+        const options = document.querySelector(".options");
+        // 7.1) create every button for each array
+        for (let choice of choices) {
+          const button = document.createElement("button");
+          button.textContent = choice;
+          button.value = choice;
+          button.name = choice;
+
+          // 7.2) append all the buttons under options
+          options.append(button);
+
+          // 7.3 add addEventListener to all buttons and function to check correct and wrong answer
+          button.addEventListener("click", (e) => {
+            checkAnswer(e, correct, choices);
+          });
+        }
+      }
+
+      // 8) check answer function
+      function checkAnswer(e, correct, choices) {
+        if (e.target.value === correct) {
+          e.target.classList.add("correct");
+        } else {
+          e.target.classList.add("incorrect");
+          // 8.1) set the correct answer background to green
+          document
+            .querySelector(`button[value="${correct}"]`)
+            .classList.add("correct");
+        }
+      }
+
+      const frame = document.querySelector(".image-frame");
+      // 1) Define tha main block ti call out functions
+      async function loadQuizDataWhenOpenThePage() {
+        // placeholder before the image is fetched
+        frame.textContent = "Fetching doggo...";
+
+        // 1.1) fetch the image
+        /* EXP: need to state async and await to get the link or the link will only return promise  */
+        const doggoImgUrl = await getRandomDoggo(DOGGO_URL);
+        // 1.2) get the right answer
+        /* EXP: the url is passed to the next function */
+        const correctBreed = getAnswer(doggoImgUrl);
+        // 1.3) get the array of wrong answers
+        /* EXP: the correctBreed is passed to the next fn */
+        const randomChoices = getRandomElement(correctBreed);
+        // 1.4) render the quiz using above data
+        const displayQuiz = renderQuiz(doggoImgUrl);
+        // 1.5) render buttons
+        const createButton = renderButton(correctBreed, randomChoices);
+      }
+
+      loadQuizDataWhenOpenThePage();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doggo Fetch</title>
+  </head>
+  <body>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        margin: 1rem auto;
+        padding: 3rem;
+      }
+
+      .image-frame {
+        text-align: center;
+        margin: 1rem auto;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      header {
+        margin: 1rem auto;
+        width: 70%;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+      }
+      /* 
+      .show {
+        visibility: visible;
+      }
+
+      .loading-indicator {
+        animation: spin 0.4s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(180deg);
+        }
+      } */
+
+      .layout {
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+      }
+    </style>
+
+    <div class="full-layout">
+      <header>
+        <h1>Guess the doggo</h1>
+        <p>What breed is the dog in the image</p>
+      </header>
+      <div class="layout">
+        <div class="image-frame">
+          <img
+            src="https://www.theodinproject.com/assets/icons/odin-icon-a34029cd84a741be4da27758dafd7d7ac3729021adea3e0701e310d91e5c1d04.svg"
+            alt=""
+          />
+        </div>
+        <div class="options"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      /* TODO: how to get random answers data to insert into button */
+
+      const BREEDS = [
+        "affenpinscher",
+        "african",
+        "airedale",
+        "akita",
+        "appenzeller",
+        "shepherd australian",
+        "basenji",
+        "beagle",
+        "bluetick",
+        "borzoi",
+        "bouvier",
+        "boxer",
+        "brabancon",
+        "briard",
+        "norwegian buhund",
+        "boston bulldog",
+        "english bulldog",
+        "french bulldog",
+        "staffordshire bullterrier",
+        "australian cattledog",
+        "chihuahua",
+        "chow",
+        "clumber",
+        "cockapoo",
+        "border collie",
+        "coonhound",
+        "cardigan corgi",
+        "cotondetulear",
+        "dachshund",
+        "dalmatian",
+        "great dane",
+        "scottish deerhound",
+        "dhole",
+        "dingo",
+        "doberman",
+        "norwegian elkhound",
+        "entlebucher",
+        "eskimo",
+        "lapphund finnish",
+        "bichon frise",
+        "germanshepherd",
+        "italian greyhound",
+        "groenendael",
+        "havanese",
+        "afghan hound",
+        "basset hound",
+        "blood hound",
+        "english hound",
+        "ibizan hound",
+        "plott hound",
+        "walker hound",
+        "husky",
+        "keeshond",
+        "kelpie",
+        "komondor",
+        "kuvasz",
+        "labradoodle",
+        "labrador",
+        "leonberg",
+        "lhasa",
+        "malamute",
+        "malinois",
+        "maltese",
+        "bull mastiff",
+        "english mastiff",
+        "tibetan mastiff",
+        "mexicanhairless",
+        "mix",
+        "bernese mountain",
+        "swiss mountain",
+        "newfoundland",
+        "otterhound",
+        "caucasian ovcharka",
+        "papillon",
+        "pekinese",
+        "pembroke",
+        "miniature pinscher",
+        "pitbull",
+        "german pointer",
+        "germanlonghair pointer",
+        "pomeranian",
+        "medium poodle",
+        "miniature poodle",
+        "standard poodle",
+        "toy poodle",
+        "pug",
+        "puggle",
+        "pyrenees",
+        "redbone",
+        "chesapeake retriever",
+        "curly retriever",
+        "flatcoated retriever",
+        "golden retriever",
+        "rhodesian ridgeback",
+        "rottweiler",
+        "saluki",
+        "samoyed",
+        "schipperke",
+        "giant schnauzer",
+        "miniature schnauzer",
+        "english setter",
+        "gordon setter",
+        "irish setter",
+        "sharpei",
+        "english sheepdog",
+        "shetland sheepdog",
+        "shiba",
+        "shihtzu",
+        "blenheim spaniel",
+        "brittany spaniel",
+        "cocker spaniel",
+        "irish spaniel",
+        "japanese spaniel",
+        "sussex spaniel",
+        "welsh spaniel",
+        "english springer",
+        "stbernard",
+        "american terrier",
+        "australian terrier",
+        "bedlington terrier",
+        "border terrier",
+        "cairn terrier",
+        "dandie terrier",
+        "fox terrier",
+        "irish terrier",
+        "kerryblue terrier",
+        "lakeland terrier",
+        "norfolk terrier",
+        "norwich terrier",
+        "patterdale terrier",
+        "russell terrier",
+        "scottish terrier",
+        "sealyham terrier",
+        "silky terrier",
+        "tibetan terrier",
+        "toy terrier",
+        "welsh terrier",
+        "westhighland terrier",
+        "wheaten terrier",
+        "yorkshire terrier",
+        "tervuren",
+        "vizsla",
+        "spanish waterdog",
+        "weimaraner",
+        "whippet",
+        "irish wolfhound",
+      ]; // API link
+      const DOGGO_URL = " https://dog.ceo/api/breeds/image/random";
+
+      // DOM declaration
+      const dogImage = document.querySelector("img");
+
+      /* TODO: create a function to get random dog image and append to image frame */
+      async function getRandomDoggo(url) {
+        const response = await fetch(url);
+        const processedResponse = await response.json();
+
+        const { message } = processedResponse;
+
+        dogImage.setAttribute("src", message);
+
+        getAnswer(message);
+      }
+
+      /* TODO: get answer from the url of the image */
+      function getAnswer(url) {
+        const linkRestructured = url.split("/");
+        let dogBreed = linkRestructured[4].split("-").reverse().join(" ");
+        console.log(dogBreed);
+
+        getRandomElement(dogBreed);
+        collectFunction(dogBreed);
+        return dogBreed;
+      }
+
+      /* TODO: get an array with random element of 3
+      - create an array
+      - if the element is present don't include it
+      - push the answer into the array, answer + 3 random
+      - sort the array in random sequence
+      */
+
+      function getRandomElement(correctAnswer) {
+        const choicesArray = [];
+        choicesArray.push(correctAnswer);
+        while (choicesArray.length < 4) {
+          const randomDog = BREEDS[Math.floor(Math.random() * BREEDS.length)];
+          if (!choicesArray.includes(randomDog)) {
+            choicesArray.push(randomDog);
+          }
+        }
+        // return choicesArray;
+        console.log(choicesArray);
+        shuffleArray(choicesArray);
+      }
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        const shuffled = array;
+        displayQuiz(shuffled);
+      }
+
+      const options = document.querySelector(".options");
+
+      function displayQuiz(insertArray, correctAnswer) {
+        const button = document.createElement("button");
+
+        console.log("shuffled", insertArray);
+
+        for (let i = 0; i < insertArray.length; i++) {
+          const button = document.createElement("button");
+          button.textContent = insertArray[i];
+          button.value = insertArray[i];
+          options.appendChild(button);
+        }
+
+        options.addEventListener("click", (event) => {
+          collectFunction(event);
+        });
+
+        console.log(button.textContent);
+      }
+
+      function collectFunction(event, dogBreed) {
+        console.log(event);
+        console.log("this", dogBreed);
+      }
+
+      getRandomDoggo(DOGGO_URL);
+    </script>
+  </body>
+</html>
