@@ -242,6 +242,7 @@
       /* TODO: create a function to get random dog image and append to image frame */
       async function getRandomDoggo(url) {
         const response = await fetch(url);
+        console.log("Result from fetch:", response);
         const processedResponse = await response.json();
 
         const { message } = processedResponse;

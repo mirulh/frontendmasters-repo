@@ -21,6 +21,7 @@ async function init() {
   const processedResponse = await promise.json();
 
   const wordOfTheDay = processedResponse.word.toUpperCase();
+  console.log(wordOfTheDay);
   const wordParts = wordOfTheDay.split("");
   let done = false;
   setLoading(false);

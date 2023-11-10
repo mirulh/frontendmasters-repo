@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wordle</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Libre+Franklin:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      :root {
+        /* color */
+        --darkGreen: #538d4e;
+        --gray: #3a3a3c;
+        --darkBlue: #171321;
+        --white: #f7f8fa;
+
+        /* fonts */
+        --title: "Arvo", serif;
+        --tile-letter: "Libre Franklin", sans-serif;
+
+        /* reference color and font */
+        --color-correct: var(--darkGreen);
+        --color-border: var(--gray);
+        --color-background: var(--darkBlue);
+        --color-white: var(--white);
+
+        --font-title: var(--title);
+        --font-tile: var(--tile-letter);
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-background);
+      }
+
+      .title {
+        text-align: center;
+        border-bottom: 1px solid var(--color-white);
+        color: var(--color-white);
+        padding-bottom: 25px;
+        font-family: var(--font-title);
+        font-size: 2.1rem;
+      }
+
+      .tiles-container {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 420px;
+        grid-gap: 5px;
+        padding-top: 50px;
+      }
+
+      .invalid {
+        animation: flash 2s; /* flash is not user defined property*/
+      }
+
+      /* defined flash */
+      @keyframes flash {
+        5% {
+          border-color: crimson;
+        }
+        100% {
+          border-color: #ccc;
+        }
+      }
+
+      .correct {
+        background-color: var(--color-correct);
+      }
+
+      .letter-tile {
+        height: 80px;
+        width: 80px;
+        border: 2px solid var(--color-border);
+        color: var(--color-white);
+        font-family: var(--tile-letter);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+      }
+    </style>
+    <header>
+      <h1 class="title">Wordle</h1>
+    </header>
+    <div class="tiles-container">
+      <div class="tile0 letter-tile"></div>
+      <div class="tile1 letter-tile"></div>
+      <div class="tile2 letter-tile"></div>
+      <div class="tile3 letter-tile"></div>
+      <div class="tile4 letter-tile"></div>
+      <div class="tile5 letter-tile"></div>
+      <div class="tile6 letter-tile"></div>
+      <div class="tile7 letter-tile"></div>
+      <div class="tile8 letter-tile"></div>
+      <div class="tile9 letter-tile"></div>
+      <div class="tile10 letter-tile"></div>
+      <div class="tile11 letter-tile"></div>
+      <div class="tile12 letter-tile"></div>
+      <div class="tile13 letter-tile"></div>
+      <div class="tile14 letter-tile"></div>
+      <!-- <div class="tile15 letter-tile"></div>
+      <div class="tile16 letter-tile"></div>
+      <div class="tile17 letter-tile"></div>
+      <div class="tile18 letter-tile"></div>
+      <div class="tile19 letter-tile"></div>
+      <div class="tile20 letter-tile"></div>
+      <div class="tile21 letter-tile"></div>
+      <div class="tile22 letter-tile"></div>
+      <div class="tile23 letter-tile"></div>
+      <div class="tile24 letter-tile"></div>
+      <div class="tile25 letter-tile"></div>
+      <div class="tile26 letter-tile"></div>
+      <div class="tile27 letter-tile"></div>
+      <div class="tile28 letter-tile"></div>
+      <div class="tile29 letter-tile"></div> -->
+    </div>
+
+    <script type="text/javascript"></script>
+  </body>
+</html>
