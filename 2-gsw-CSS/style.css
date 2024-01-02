@@ -15,9 +15,9 @@
   --orange2: #f28705;
   --yellow: #f2cb05;
   --font-size: 1.3rem; /* 1rem = 16px or the default font-size set in browser*/
-  --mono: "Roboto mono";
-  --slab: "Roboto slab";
-  --cour: "Courier Prime";
+  --mono: 'Roboto mono';
+  --slab: 'Roboto slab';
+  --cour: 'Courier Prime';
   --rec: Recursive;
 
   /* Eureka! redefining the color name to verb for a greater clarity when to use it (when hovering, this color is used etc) */
@@ -336,12 +336,12 @@ nav ul {
   gap: 2rem;
 }
 
-nav [class*="fa-"] {
+nav [class*='fa-'] {
   font-size: 125%;
   color: var(--hotTeal);
 }
 
-nav h1 [class*="fa-"] {
+nav h1 [class*='fa-'] {
   font-size: 100%;
 }
 
@@ -406,7 +406,7 @@ footer ul {
   font-size: 2rem;
 }
 
-footer [class*="fa-"] {
+footer [class*='fa-'] {
   font-size: 125%;
   color: var(--hotTeal);
 }
